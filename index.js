@@ -7,8 +7,12 @@ const app = express();
 const port = 3000;
 
 dotenv.config();
-
+//express.json digunakan untuk membaca data JSON yang masuk ke dalam server
+app.use(express.json())
+//Membaca JSON di request body
 app.use(bodyParser.urlencoded({ extended: true }))
+
+
 
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -39,7 +43,15 @@ app.post('/submit', (req, res) => {
             console.error("Error : ", err);
             res.status(500).send("Error Input Data");
         } else {
-            res.status(201).send("Succesfuly Added Data");
+            res.status(201).json({
+                message: "Successfully Added Data",
+                data: {
+                    id: results.insertId,
+                    username,
+                    password
+                }
+            });
+
         }
     })
 })
