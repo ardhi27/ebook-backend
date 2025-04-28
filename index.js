@@ -11,7 +11,6 @@ dotenv.config();
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
@@ -19,8 +18,7 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 })
 
-//Displaying userlist
-app.get('/userlist', (req, res) => {
+app.get('/user', (req, res) => {
     const select = "SELECT * FROM `user`";
     connection.query(select, (err, results) => {
         if (err) {
@@ -32,19 +30,12 @@ app.get('/userlist', (req, res) => {
     })
 })
 
-app.post('/submit', (req, res) => {
+app.post('/add', async (req, res) => {
     const { username, password } = req.body;
 
-    bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) {
-            console.error('Error hashing password', err);
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        }
-
+    try {
+        let hashedPassword = await bcrypt.hash(password, 10);
         console.log("Hashed Password:", hashedPassword);
-
         const insert = "INSERT INTO `user` (username, password) VALUES(?, ?)";
         connection.query(insert, [username, hashedPassword], (err, results) => {
             if (err) {
@@ -60,7 +51,12 @@ app.post('/submit', (req, res) => {
                 });
             }
         });
-    });
+    } catch (err) {
+        console.error("Error hashing password", err);
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        });
+    }
 });
 
 
