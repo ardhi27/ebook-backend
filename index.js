@@ -2,14 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import mysql from "mysql2";
 import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
 
 const app = express();
 const port = 3000;
 
 dotenv.config();
-//express.json digunakan untuk membaca data JSON yang masuk ke dalam server
 app.use(express.json())
-//Membantu server agar data dapat terbaca di request body
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
@@ -33,27 +32,37 @@ app.get('/userlist', (req, res) => {
     })
 })
 
-//Add user
 app.post('/submit', (req, res) => {
     const { username, password } = req.body;
-    const insert = "INSERT INTO `user` (username, password) VALUES(?, ?)";
-    connection.query(insert, [username, password], (err, results) => {
-        if (err) {
-            console.error("Error : ", err);
-            res.status(500).send("Error Input Data");
-        } else {
-            res.status(201).json({
-                message: "Successfully Added Data",
-                data: {
-                    id: results.insertId,
-                    username,
-                    password
-                }
-            });
 
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
+        if (err) {
+            console.error('Error hashing password', err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
         }
-    })
-})
+
+        console.log("Hashed Password:", hashedPassword);
+
+        const insert = "INSERT INTO `user` (username, password) VALUES(?, ?)";
+        connection.query(insert, [username, hashedPassword], (err, results) => {
+            if (err) {
+                console.error("Error inserting data: ", err);
+                return res.status(500).send("Error Input Data");
+            } else {
+                res.status(201).json({
+                    message: "Successfully Added Data",
+                    data: {
+                        id: results.insertId,
+                        username,
+                    }
+                });
+            }
+        });
+    });
+});
+
 
 //Update User
 app.put('/update/:id', (req, res) => {
