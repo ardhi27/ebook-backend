@@ -9,9 +9,8 @@ const port = 3000;
 dotenv.config();
 //express.json digunakan untuk membaca data JSON yang masuk ke dalam server
 app.use(express.json())
-//Membaca JSON di request body
+//Membantu server agar data dapat terbaca di request body
 app.use(bodyParser.urlencoded({ extended: true }))
-
 
 
 const connection = mysql.createConnection({
@@ -52,6 +51,60 @@ app.post('/submit', (req, res) => {
                 }
             });
 
+        }
+    })
+})
+
+//Update User
+app.put('/update/:id', (req, res) => {
+    const userId = req.params.id
+    const { username, password } = req.body;
+    const updateSql = "UPDATE `user` SET username = ?, password = ? WHERE id = ?";
+    connection.query(updateSql, [username, password, userId], (err, result) => {
+        if (err) {
+            console.error("Error updating data", err);
+            res.status(500).json({
+                message: 'Internal Server Error'
+            })
+        } else if (result.affectedRows === 0) {
+            res.status(404).json({
+                message: 'User Not Found'
+            })
+        } else {
+            res.json({
+                message: 'Successfully Updated Data',
+                data: {
+                    userId: userId,
+                    username, password
+                }
+            })
+        }
+    })
+})
+
+//DELETE
+app.delete('/delete/:id', (req, res) => {
+    const userId = req.params;
+    const deleteSql = "DELETE FROM `user` WHERE id = ?"
+    connection.query(deleteSql, [userId], (err, result) => {
+        if (err) {
+            console.error("Error Deleting Data", err);
+            res.status(500).json({
+                message: 'Error Internal Server'
+            })
+        } else if (result.affectedRows === 0) {
+            res.status(404).json({
+                message: 'User Data Not Found'
+            })
+        } else {
+            res.json({
+                message: 'User Data Deleted',
+                data: {
+                    userId: userId,
+                    username,
+                    password
+                }
+            })
         }
     })
 })
