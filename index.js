@@ -84,7 +84,7 @@ app.put('/update/:id', (req, res) => {
 
 //DELETE
 app.delete('/delete/:id', (req, res) => {
-    const userId = req.params;
+    const userId = req.params.id;
     const deleteSql = "DELETE FROM `user` WHERE id = ?"
     connection.query(deleteSql, [userId], (err, result) => {
         if (err) {
@@ -101,8 +101,6 @@ app.delete('/delete/:id', (req, res) => {
                 message: 'User Data Deleted',
                 data: {
                     userId: userId,
-                    username,
-                    password
                 }
             })
         }
