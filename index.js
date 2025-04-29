@@ -144,28 +144,31 @@ app.put('/update/:id', async (req, res) => {
 })
 
 //DELETE
-app.delete('/delete/:id', (req, res) => {
+app.delete('/delete/:id', async (req, res) => {
     const userId = req.params.id;
-    const deleteSql = "DELETE FROM `user` WHERE id = ?"
-    connection.query(deleteSql, [userId], (err, result) => {
-        if (err) {
-            console.error("Error Deleting Data", err);
-            res.status(500).json({
-                message: 'Error Internal Server'
-            })
-        } else if (result.affectedRows === 0) {
+
+    try {
+        const deleteSql = "DELETE FROM `user` WHERE id = ?"
+        const [results] = await connection.promise().query(deleteSql, [userId])
+
+        if (results.affectedRows === 0) {
             res.status(404).json({
-                message: 'User Data Not Found'
+                message: "Data not found to delete"
             })
         } else {
-            res.json({
-                message: 'User Data Deleted',
-                data: {
-                    userId: userId,
-                }
+            res.status(200).json({
+                message: "Data deleted succesfuly",
+                userId: userId
             })
         }
-    })
+
+    } catch (err) {
+        console.error("Error : ", err)
+        res.status(500).json({
+            message: "Internal Error Server"
+        })
+    }
+
 })
 
 app.listen(port, () => {
