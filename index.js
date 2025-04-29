@@ -18,16 +18,26 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 })
 
-app.get('/user', (req, res) => {
+app.get('/user', async (req, res) => {
     const select = "SELECT * FROM `user`";
-    connection.query(select, (err, results) => {
-        if (err) {
-            console.error("Error Taking Data : ", err);
-            res.status(500).send("Error Taking Data")
+    try {
+        const [results] = await connection.promise().query(select);
+        if (results.length === 0) {
+            res.status(404).json({
+                message: "Data not found"
+            })
         } else {
-            res.json(results);
+            res.status(200).json({
+                message: "Data succesfuly displayed",
+                data: results
+            })
         }
-    })
+    } catch (err) {
+        console.error("Error : ", err);
+        res.status(500).json({
+            message: "Internal Error Server"
+        })
+    }
 })
 
 app.post('/login', async (req, res) => {
