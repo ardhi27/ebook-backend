@@ -33,6 +33,7 @@ app.get('/user', (req, res) => {
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
+    //Cek kalau username atau password ada dikirim oleh user ke server
     if (!username || !password) {
         res.status(400).json({
             message: "Username and Password harus ada"
@@ -40,29 +41,33 @@ app.post('/login', async (req, res) => {
     }
 
     try {
+        //Taking data based on it username
         const [results] = await connection.promise().query("SELECT * FROM `user` WHERE `username` = ?", [username])
 
+        //If the data is not null
         if (results.length === 0) {
             res.status(404).json({
                 message: "Username not found"
             })
-        }
-
-        const user = results[0];
-        const passwordStatus = await bcrypt.compare(password, user.password);
-        if (!passwordStatus) {
-            res.status(401).json({
-                message: "Password Salah"
-            })
-        }
-
-        res.status(200).json({
-            message: "Login Successfuly",
-            user: {
-                id: user.id,
-                username: user.username
+            //If there is data
+        } else {
+            const user = results[0];
+            //Comparing hashed password and password in plain text
+            const passwordStatus = await bcrypt.compare(password, user.password);
+            if (!passwordStatus) {
+                res.status(401).json({
+                    message: "Incorrect Password"
+                })
+            } else {
+                res.status(200).json({
+                    message: "Login Successfuly",
+                    user: {
+                        id: user.id,
+                        username: user.username
+                    }
+                })
             }
-        })
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({
