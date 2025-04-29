@@ -107,30 +107,40 @@ app.post('/register', async (req, res) => {
 
 
 //Update User
-app.put('/update/:id', (req, res) => {
+app.put('/update/:id', async (req, res) => {
     const userId = req.params.id
     const { username, password } = req.body;
-    const updateSql = "UPDATE `user` SET username = ?, password = ? WHERE id = ?";
-    connection.query(updateSql, [username, password, userId], (err, result) => {
-        if (err) {
-            console.error("Error updating data", err);
-            res.status(500).json({
-                message: 'Internal Server Error'
-            })
-        } else if (result.affectedRows === 0) {
+
+    if (!username || !password) {
+        res.status(404).json({
+            message: "Username or password required to fill"
+        })
+    }
+
+    try {
+        let hashedPassword = await bcrypt.hash(password, 10);
+        console.log("Hashed Password Update : ", hashedPassword);
+        const updateSql = "UPDATE `user` SET username = ?, password = ? WHERE id = ?";
+        const [results] = await connection.promise().query(updateSql, [username, hashedPassword, userId])
+        if (results.affectedRows === 0) {
             res.status(404).json({
-                message: 'User Not Found'
+                message: "Data Not Found"
             })
         } else {
-            res.json({
-                message: 'Successfully Updated Data',
+            res.status(200).json({
+                message: "Data updated succesfuly",
                 data: {
                     userId: userId,
-                    username, password
+                    username: username
                 }
             })
         }
-    })
+    } catch (err) {
+        console.error("Error : ", e);
+        res.status(500).json({
+            message: "Error Internal Server"
+        })
+    }
 })
 
 //DELETE
