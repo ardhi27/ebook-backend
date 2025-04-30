@@ -153,7 +153,7 @@ app.put('/update/:id', async (req, res) => {
     }
 })
 
-//DELETE
+//DELETE User
 app.delete('/delete/:id', async (req, res) => {
     const userId = req.params.id;
 
