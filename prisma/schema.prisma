@@ -13,3 +13,51 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  userId   Int      @id @default(autoincrement())
+  username String   @db.VarChar(50)
+  password String
+  Rental   Rental[]
+}
+
+model BooksCategory {
+  categoryId Int    @id @default(autoincrement())
+  category   String
+
+  books Books[]
+}
+
+model BooksAuthor {
+  authorId Int    @id @default(autoincrement())
+  author   String @db.VarChar(50)
+
+  books Books[]
+}
+
+model Books {
+  booksId     Int    @id @default(autoincrement())
+  booksName   String @db.VarChar(50)
+  booksAuthor String
+  authorId    Int
+  categoryId  Int
+
+  author        BooksAuthor   @relation(fields: [authorId], references: [authorId])
+  BooksCategory BooksCategory @relation(fields: [categoryId], references: [categoryId])
+  Rental        Rental[]
+}
+
+model Rental {
+  rentalId   Int      @id @default(autoincrement())
+  userId     Int
+  booksId    Int
+  rentalDate DateTime
+  returnDate DateTime
+  status     String
+
+  user User  @relation(fields: [userId], references: [userId])
+  book Books @relation(fields: [booksId], references: [booksId])
+}
+
+//payment
+//...

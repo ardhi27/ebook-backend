@@ -18,9 +18,8 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 })
 
-//Get User List
 app.get('/user', async (req, res) => {
-    const select = "SELECT * FROM `user`";
+    const select = "SELECT * FROM `User`";
     try {
         const [results] = await connection.promise().query(select);
         if (results.length === 0) {
@@ -41,32 +40,31 @@ app.get('/user', async (req, res) => {
     }
 })
 
-//Get user based on id
-app.get('/user/:id', async(req, res) => {
+app.get('/user/:id', async (req, res) => {
     const userId = req.params.id;
-    if(isNaN(userId)){
+    if (isNaN(userId)) {
         res.status(400).json({
-            message : "User ID Not Found!"
+            message: "User ID Not Found!"
         })
     }
-    const selectUser = "SELECT * FROM `user` WHERE `id` = ?"
-    try{
+    const selectUser = "SELECT * FROM `User` WHERE `id` = ?"
+    try {
         const [results] = await connection.promise().query(selectUser, [userId]);
-        if(results.length === 0 ){
+        if (results.length === 0) {
             res.status(404).json({
-                message : "User data not found!"
+                message: "User data not found!"
             })
-        }else{
+        } else {
             const user = results[0];
             res.status(200).json({
-                message : "User Found!",
-                data : user
+                message: "User Found!",
+                data: user
             })
         }
-    }catch(err){
+    } catch (err) {
         console.error("Error : ", err);
         res.status(500).json({
-            message : "Internal Error Server"
+            message: "Internal Error Server"
         })
     }
 })
@@ -74,7 +72,6 @@ app.get('/user/:id', async(req, res) => {
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
-    //Cek kalau username atau password ada dikirim oleh user ke server
     if (!username || !password) {
         res.status(400).json({
             message: "Username and Password required!"
@@ -83,17 +80,15 @@ app.post('/login', async (req, res) => {
 
     try {
         //Taking data based on it username
-        const [results] = await connection.promise().query("SELECT * FROM `user` WHERE `username` = ?", [username])
+        const [results] = await connection.promise().query("SELECT * FROM `User` WHERE `username` = ?", [username])
 
-        //If the data is not null
         if (results.length === 0) {
             res.status(404).json({
                 message: "Username not found"
             })
-            //If there is data
+
         } else {
             const user = results[0];
-            //Comparing hashed password and password in plain text
             const passwordStatus = await bcrypt.compare(password, user.password);
             if (!passwordStatus) {
                 res.status(401).json({
@@ -123,7 +118,7 @@ app.post('/register', async (req, res) => {
     try {
         let hashedPassword = await bcrypt.hash(password, 10);
         console.log("Hashed Password:", hashedPassword);
-        const insert = "INSERT INTO `user` (username, password) VALUES(?, ?)";
+        const insert = "INSERT INTO `User` (username, password) VALUES(?, ?)";
         connection.query(insert, [username, hashedPassword], (err, results) => {
             if (err) {
                 console.error("Error inserting data: ", err);
@@ -147,7 +142,6 @@ app.post('/register', async (req, res) => {
 });
 
 
-//Update User
 app.put('/update/:id', async (req, res) => {
     const userId = req.params.id
     const { username, password } = req.body;
@@ -161,7 +155,7 @@ app.put('/update/:id', async (req, res) => {
     try {
         let hashedPassword = await bcrypt.hash(password, 10);
         console.log("Hashed Password Update : ", hashedPassword);
-        const updateSql = "UPDATE `user` SET username = ?, password = ? WHERE id = ?";
+        const updateSql = "UPDATE `User` SET username = ?, password = ? WHERE id = ?";
         const [results] = await connection.promise().query(updateSql, [username, hashedPassword, userId])
         if (results.affectedRows === 0) {
             res.status(404).json({
@@ -184,12 +178,11 @@ app.put('/update/:id', async (req, res) => {
     }
 })
 
-//DELETE User
 app.delete('/delete/:id', async (req, res) => {
     const userId = req.params.id;
 
     try {
-        const deleteSql = "DELETE FROM `user` WHERE id = ?"
+        const deleteSql = "DELETE FROM `User` WHERE id = ?"
         const [results] = await connection.promise().query(deleteSql, [userId])
 
         if (results.affectedRows === 0) {
