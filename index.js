@@ -18,6 +18,7 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 })
 
+//Get User List
 app.get('/user', async (req, res) => {
     const select = "SELECT * FROM `user`";
     try {
@@ -40,13 +41,43 @@ app.get('/user', async (req, res) => {
     }
 })
 
+//Get user based on id
+app.get('/user/:id', async(req, res) => {
+    const userId = req.params.id;
+    if(isNaN(userId)){
+        res.status(400).json({
+            message : "User ID Not Found!"
+        })
+    }
+    const selectUser = "SELECT * FROM `user` WHERE `id` = ?"
+    try{
+        const [results] = await connection.promise().query(selectUser, [userId]);
+        if(results.length === 0 ){
+            res.status(404).json({
+                message : "User data not found!"
+            })
+        }else{
+            const user = results[0];
+            res.status(200).json({
+                message : "User Found!",
+                data : user
+            })
+        }
+    }catch(err){
+        console.error("Error : ", err);
+        res.status(500).json({
+            message : "Internal Error Server"
+        })
+    }
+})
+
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     //Cek kalau username atau password ada dikirim oleh user ke server
     if (!username || !password) {
         res.status(400).json({
-            message: "Username and Password harus ada"
+            message: "Username and Password required!"
         })
     }
 
@@ -153,7 +184,7 @@ app.put('/update/:id', async (req, res) => {
     }
 })
 
-//DELETE
+//DELETE User
 app.delete('/delete/:id', async (req, res) => {
     const userId = req.params.id;
 
