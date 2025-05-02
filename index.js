@@ -1,22 +1,5 @@
-import express from "express";
-import bodyParser from "body-parser";
-import mysql from "mysql2";
-import dotenv from 'dotenv';
-import bcrypt from 'bcrypt';
-
-const app = express();
-const port = 3000;
-
-dotenv.config();
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
-})
+import { app, port } from "./app.js"
+import { connection } from "./config/database.js";
 
 app.get('/user', async (req, res) => {
     const select = "SELECT * FROM `User`";
