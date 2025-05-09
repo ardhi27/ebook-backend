@@ -1,5 +1,7 @@
 import { app, port } from "./app.js"
 import { connection } from "./config/database.js";
+import bcrypt from 'bcrypt';
+
 
 app.get('/user', async (req, res) => {
     const select = "SELECT * FROM `User`";
@@ -182,7 +184,7 @@ app.delete('/delete/:id', async (req, res) => {
     } catch (err) {
         console.error("Error : ", err)
         res.status(500).json({
-            message: "Internal Error Server"
+            message: "Internal Errxor Server"
         })
     }
 
