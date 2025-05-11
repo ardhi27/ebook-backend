@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response, Router } from "express";
 import { UserService } from "./user.services";
 import { HttpException } from "../../../shared/http.exception";
-import { createResponse } from "../../../shared/utils";
-import { constants } from "../../../shared/utils";
+import { createResponse, constants } from "../../../shared/utils";
+import { Router, Request, Response, NextFunction } from "express";
+
 export class UserController {
   private path: string;
   public router: Router;
@@ -26,6 +26,29 @@ export class UserController {
         return res
           .status(200)
           .json(createResponse(constants.SUCCESS_MESSAGE, { token: token }));
+      }
+      throw new HttpException(500, "Something went wrong");
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  private register = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const account = await this.userService.register(req.body);
+      if (account) {
+        return res
+          .status(200)
+          .json(
+            createResponse(
+              constants.SUCCESS_MESSAGE,
+              `Successfully create account with name ${account}`
+            )
+          );
       }
       throw new HttpException(500, "Something went wrong");
     } catch (error) {
