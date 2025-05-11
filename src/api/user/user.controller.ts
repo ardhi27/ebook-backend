@@ -17,6 +17,7 @@ export class UserController {
 
   private registerRoutes() {
     this.router.post(this.path + "/login", this.login);
+    this.router.post(this.path + "/register", this.register);
   }
 
   private login = async (req: Request, res: Response, next: NextFunction) => {
