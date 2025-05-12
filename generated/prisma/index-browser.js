@@ -123,12 +123,35 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UserScalarFieldEnum = {
   userId: 'userId',
   username: 'username',
-  password: 'password'
+  password: 'password',
+  userRole: 'userRole'
 };
 
 exports.Prisma.BooksCategoryScalarFieldEnum = {
   categoryId: 'categoryId',
   category: 'category'
+};
+
+exports.Prisma.BooksAuthorScalarFieldEnum = {
+  authorId: 'authorId',
+  author: 'author'
+};
+
+exports.Prisma.BooksScalarFieldEnum = {
+  booksId: 'booksId',
+  booksName: 'booksName',
+  booksAuthor: 'booksAuthor',
+  authorId: 'authorId',
+  categoryId: 'categoryId'
+};
+
+exports.Prisma.RentalScalarFieldEnum = {
+  rentalId: 'rentalId',
+  userId: 'userId',
+  booksId: 'booksId',
+  rentalDate: 'rentalDate',
+  returnDate: 'returnDate',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {
@@ -138,17 +161,34 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.UserOrderByRelevanceFieldEnum = {
   username: 'username',
-  password: 'password'
+  password: 'password',
+  userRole: 'userRole'
 };
 
 exports.Prisma.BooksCategoryOrderByRelevanceFieldEnum = {
   category: 'category'
 };
 
+exports.Prisma.BooksAuthorOrderByRelevanceFieldEnum = {
+  author: 'author'
+};
+
+exports.Prisma.BooksOrderByRelevanceFieldEnum = {
+  booksName: 'booksName',
+  booksAuthor: 'booksAuthor'
+};
+
+exports.Prisma.RentalOrderByRelevanceFieldEnum = {
+  status: 'status'
+};
+
 
 exports.Prisma.ModelName = {
   User: 'User',
-  BooksCategory: 'BooksCategory'
+  BooksCategory: 'BooksCategory',
+  BooksAuthor: 'BooksAuthor',
+  Books: 'Books',
+  Rental: 'Rental'
 };
 
 /**
