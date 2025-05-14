@@ -1,5 +1,5 @@
-import { PrismaClient } from "../../../generated/prisma/client";
 import bcrypt from "bcrypt";
+import prisma, { PrismaClient } from "../../lib/prisma";
 import { HttpException } from "../../shared/http.exception";
 import jwt from "jsonwebtoken";
 import { UserLoginProps, UserRegisterProps } from "./user.dto";
@@ -9,7 +9,7 @@ export class UserService {
 
   //Init prismaclient
   constructor() {
-    this.db = new PrismaClient();
+    this.db = prisma;
   }
 
   //Login
@@ -68,6 +68,28 @@ export class UserService {
     });
 
     return newUser.username;
+  }
+
+  public async createAdmin() {
+    const adminRole = "ADMIN";
+    const adminPassword = await this.hashedPassword("admin123");
+
+    const createAdmin = await this.db.user.create({
+      data: {
+        username: "admin",
+        password: adminPassword,
+        userRole: adminRole,
+      },
+    });
+
+    return {
+      status: "Success create admin",
+      user: {
+        username: "admin",
+        password: createAdmin.username,
+        userRole: createAdmin.password,
+      },
+    };
   }
 
   private comparePassword(plainPassword: string, hashedPassword: string) {

@@ -4,3 +4,7 @@ export interface UserLoginProps {
 }
 
 export interface UserRegisterProps extends UserLoginProps {}
+
+export interface UserCreateArgs extends UserLoginProps {
+  role?: string;
+}

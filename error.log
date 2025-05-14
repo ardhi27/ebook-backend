@@ -43,3 +43,4 @@ Invalid `this.db.user.findFirst()` invocation in
   46   //Before user register, the function will check first if the user is exist
 → 47   const user = await this.db.user.findFirst(
 The table `user` does not exist in the current database.
+Error: Endpoint tidak ditemukan

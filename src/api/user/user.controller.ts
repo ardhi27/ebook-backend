@@ -19,9 +19,21 @@ export class UserController {
 
   private registerRoutes() {
     this.router.post(this.path + "/login", this.login);
-
+    this.router.post(this.path + "/createadmin", this.createAdmin);
     this.router.post(this.path + "/register", this.register);
   }
+
+  private createAdmin = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    this.userService.createAdmin();
+
+    return res
+      .status(200)
+      .json(createResponse(constants.SUCCESS_MESSAGE, { status: "ok" }));
+  };
 
   private login = async (
     req: Request,
