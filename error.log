@@ -1,0 +1,45 @@
+Error: Endpoint tidak ditemukan
+TypeError: Cannot read properties of undefined (reading 'username')
+TypeError: Cannot read properties of undefined (reading 'username')
+TypeError: Cannot read properties of undefined (reading 'username')
+SyntaxError: Expected ',' or '}' after property value in JSON at position 60 (line 3 column 26)
+PrismaClientKnownRequestError: 
+Invalid `this.db.user.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/user/user.services.ts:47:37
+
+  44 //Register
+  45 async register(registerData: any) {
+  46   //Before user register, the function will check first if the user is exist
+→ 47   const user = await this.db.user.findFirst(
+The table `user` does not exist in the current database.
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+SyntaxError: "[object Object]" is not valid JSON
+PrismaClientKnownRequestError: 
+Invalid `this.db.user.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/user/user.services.ts:47:37
+
+  44 //Register
+  45 async register(registerData: UserRegisterProps) {
+  46   //Before user register, the function will check first if the user is exist
+→ 47   const user = await this.db.user.findFirst(
+The table `user` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `this.db.user.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/user/user.services.ts:47:37
+
+  44 //Register
+  45 async register(registerData: UserRegisterProps) {
+  46   //Before user register, the function will check first if the user is exist
+→ 47   const user = await this.db.user.findFirst(
+The table `user` does not exist in the current database.

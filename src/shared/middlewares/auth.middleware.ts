@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-import { HttpException } from "../http.exception";
 import jwt from "jsonwebtoken";
+import { HttpException } from "../http.exception";
+import { Request, Response, NextFunction } from "express";
 
 type JWTPayload = {
   userId: string;
@@ -16,14 +16,14 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     }
 
     const jwtKey = process.env.JWT_KEY;
-
     if (!jwtKey) {
       throw new HttpException(500, "No JWT_KEY env found");
     }
 
-    const decoded = jwt.verify(token, jwtKey) as JWTPayload;
-    req.userId = decoded.userId;
-    req.userRole = decoded.userRole;
+    const decoded = jwt.verify(token, jwtKey);
+    // req.userId = decoded.userId;
+    // req.userRole = decoded.userRole;
+    console.log(decoded);
   } catch (error) {
     next(error);
   }

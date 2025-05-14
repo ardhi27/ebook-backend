@@ -1,7 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../../../generated/prisma/client";
 import bcrypt from "bcrypt";
-import { HttpException } from "../../../shared/http.exception";
+import { HttpException } from "../../shared/http.exception";
 import jwt from "jsonwebtoken";
+import { UserLoginProps, UserRegisterProps } from "./user.dto";
 
 export class UserService {
   private db: PrismaClient;
@@ -12,10 +13,11 @@ export class UserService {
   }
 
   //Login
-  async login(loginData: any) {
+  async login(loginData: UserLoginProps) {
     //Finding user if match
-    const user = await this.db.user.findUnique({
+    const user = await this.db.user.findFirst({
       where: {
+        // username: loginData.username,
         username: loginData.username,
       },
     });
@@ -36,11 +38,11 @@ export class UserService {
     }
 
     //Returning jwt token for each user
-    return this.createJwtToken(user.id);
+    return this.createJwtToken(user.userId);
   }
 
   //Register
-  async register(registerData: any) {
+  async register(registerData: UserRegisterProps) {
     //Before user register, the function will check first if the user is exist
     const user = await this.db.user.findFirst({
       where: {
@@ -56,10 +58,12 @@ export class UserService {
     //When we enter the password, the program will hash the password into hard string character
     const hashedPassword = await this.hashedPassword(registerData.password);
 
+    //Create a new user
     const newUser = await this.db.user.create({
       data: {
         username: registerData.username,
         password: hashedPassword,
+        userRole: "USER",
       },
     });
 

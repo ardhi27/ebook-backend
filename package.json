@@ -1,10 +1,11 @@
 {
   "name": "rental-books-backend",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,19 @@
     "@types/jsonwebtoken": "^9.0.9",
     "bcrypt": "^5.1.1",
     "body-parser": "^2.2.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mysql2": "^3.14.1"
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.1",
+    "prisma": "^6.7.0"
   }
 }

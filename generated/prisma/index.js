@@ -206,7 +206,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:yurisomba23@127.0.0.1:3306/user"
+        "value": "mysql://root:yurisomba23@127.0.0.1:3306/rental-books"
       }
     }
   },

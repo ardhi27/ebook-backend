@@ -14,4 +14,22 @@ export function errorMiddleware(
     error instanceof HttpException ? error.message : "Something went wrong";
 
   fs.appendFileSync("error.log", `${error.toString()}\n`, "utf8");
+  if (error.toString().includes("Foreign key constraint failed")) {
+    statusCode = 409;
+    message = "Data tidak dapat dihapus karena masih terdapat data terkait";
+  }
+
+  res.status(statusCode).json({
+    status: "Failed",
+    message: message,
+    data: null,
+  });
+}
+
+export function notFoundMiddleware(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  next(new HttpException(404, "Endpoint tidak ditemukan"));
 }
