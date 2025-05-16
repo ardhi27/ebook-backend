@@ -4,6 +4,7 @@ import {
   notFoundMiddleware,
 } from "./shared/middlewares/error.middleware";
 import { UserController } from "./api/user/user.controller";
+import { BooksController } from "./api/books/books.controller";
 import cors from "cors";
 
 class Server {
@@ -28,6 +29,7 @@ class Server {
 
   private routes() {
     this.app.use(new UserController().router);
+    this.app.use(new BooksController().router);
   }
 
   public run() {
