@@ -44,3 +44,4 @@ Invalid `this.db.user.findFirst()` invocation in
 → 47   const user = await this.db.user.findFirst(
 The table `user` does not exist in the current database.
 Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan

@@ -1,11 +1,8 @@
-export interface Books {
-  booksName: string;
+import { IsString } from "class-validator";
+
+class CategoryDto {
+  @IsString()
+  categoryName!: string;
 }
 
-export interface BooksAuthor {
-  booksAuthor: string;
-}
-
-export interface BooksCategory {
-  booksCategory: string;
-}
+export default CategoryDto;
