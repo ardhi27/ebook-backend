@@ -24,7 +24,7 @@ model User {
 
 model BooksCategory {
   categoryId Int    @id @default(autoincrement())
-  category   String
+  category   String @unique
 
   books Books[]
 }
