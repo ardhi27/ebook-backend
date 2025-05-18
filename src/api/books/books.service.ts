@@ -1,7 +1,7 @@
 import prisma, { PrismaClient } from "../../lib/prisma";
 import { HttpException } from "../../shared/http.exception";
-import CategoryDto from "./books.dto";
-
+import AuthorDto from "./author.dto";
+import CategoryDto from "./category.dto";
 export class BooksService {
   private db: PrismaClient;
 
@@ -19,11 +19,41 @@ export class BooksService {
 
   //category
   async createCategory(categoryData: CategoryDto) {
-    const category = await this.db.booksCategory.create({
+    if (!categoryData.categoryName) {
+      throw new HttpException(400, "Category name is required");
+    }
+
+    const isCategoryExisted = await this.db.booksCategory.findFirst({
+      where: {
+        category: categoryData.categoryName,
+      },
+    });
+
+    console.log("Kategori dikirim:", categoryData.categoryName);
+    console.log("Kategori yang ditemukan:", isCategoryExisted);
+
+    if (isCategoryExisted) {
+      throw new HttpException(409, "Category already existed");
+    }
+
+    const newCategory = await this.db.booksCategory.create({
       data: {
         category: categoryData.categoryName,
       },
     });
+
+    return {
+      status: "success",
+      data: newCategory,
+    };
   }
+
   //author
+  async createAuthor(authorData: AuthorDto) {
+    const author = await this.db.booksAuthor.create({
+      data: {
+        author: authorData.authorName,
+      },
+    });
+  }
 }
