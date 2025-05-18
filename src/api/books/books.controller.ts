@@ -3,7 +3,7 @@ import { createResponse, constants } from "../../shared/utils";
 import authMiddleware from "../../shared/middlewares/auth.middleware";
 import { HttpException } from "../../shared/http.exception";
 import { validationMiddleware } from "../../shared/middlewares/validation.middleware";
-import CategoryDto from "./books.dto";
+import CategoryDto from "./category.dto";
 import { BooksService } from "./books.service";
 
 export class BooksController {
@@ -33,7 +33,12 @@ export class BooksController {
 
       return res
         .status(200)
-        .json(createResponse(constants.SUCCESS_MESSAGE, { status: "ok" }));
+        .json(
+          createResponse(
+            constants.SUCCESS_MESSAGE,
+            `Successfully create new category with name ${category}`
+          )
+        );
     } catch (error) {
       console.log(error);
       next(error);
