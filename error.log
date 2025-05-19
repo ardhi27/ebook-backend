@@ -45,3 +45,6 @@ Invalid `this.db.user.findFirst()` invocation in
 The table `user` does not exist in the current database.
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan

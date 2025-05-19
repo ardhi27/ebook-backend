@@ -2,22 +2,13 @@ import prisma, { PrismaClient } from "../../lib/prisma";
 import { HttpException } from "../../shared/http.exception";
 import AuthorDto from "./author.dto";
 import CategoryDto from "./category.dto";
-export class BooksService {
+export class CategoryService {
   private db: PrismaClient;
 
   constructor() {
     this.db = prisma;
   }
 
-  //get
-  //   async function getBooks(booksData: Books){
-
-  //   }
-  //create book
-  //update book
-  //delete
-
-  //category
   async createCategory(categoryData: CategoryDto) {
     if (!categoryData.categoryName) {
       throw new HttpException(400, "Category name is required");
@@ -48,12 +39,22 @@ export class BooksService {
     };
   }
 
-  //author
-  async createAuthor(authorData: AuthorDto) {
-    const author = await this.db.booksAuthor.create({
-      data: {
-        author: authorData.authorName,
-      },
+  async deleteCategory(categoryId: number) {
+    const category = await this.db.booksCategory.findUnique({
+      where: { categoryId: categoryId },
     });
+
+    if (!category) {
+      throw new HttpException(404, "Category not found");
+    }
+
+    await this.db.booksCategory.delete({
+      where: { categoryId: categoryId },
+    });
+
+    return {
+      status: "success",
+      message: "Category deleted succesfully",
+    };
   }
 }
