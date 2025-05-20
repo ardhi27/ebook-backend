@@ -4,24 +4,47 @@ import authMiddleware from "../../shared/middlewares/auth.middleware";
 import { HttpException } from "../../shared/http.exception";
 import { validationMiddleware } from "../../shared/middlewares/validation.middleware";
 import CategoryDto from "./category.dto";
+import AuthorDto from "./author.dto";
 import { CategoryService } from "./category.service";
+import { AuthorService } from "./author.service";
 
 export class BooksController {
   private path: string;
   public router: Router;
   private categoryService: CategoryService;
+  private authorService: AuthorService;
 
   constructor() {
     this.path = "/api/books";
     this.categoryService = new CategoryService();
+    this.authorService = new AuthorService();
     this.router = Router();
     this.registerRoutes();
   }
 
   private registerRoutes() {
     this.router.post(this.path + "/createcategory", this.createCategory);
+    this.router.post((this.path = "/createauthor"), this.createAuthor);
     this.router.delete(this.path + "/deletecategory/:id", this.deleteCategory);
+    this.router.patch(this.path + "/updatecategory/:id", this.updateCategory);
   }
+
+  private createAuthor = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const author: AuthorDto = req.body;
+    try {
+      this.authorService.createAuthor(author);
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, "OK"));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
 
   private createCategory = async (
     req: Request,
@@ -60,6 +83,27 @@ export class BooksController {
       return res
         .status(200)
         .json(createResponse(constants.SUCCESS_MESSAGE, "Delete succesfully"));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private updateCategory = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const categoryId = Number(req.params.id);
+    const categoryData: CategoryDto = req.body;
+    try {
+      const updateCategory = await this.categoryService.updateCategory(
+        categoryId,
+        categoryData
+      );
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, "Update successfully"));
     } catch (error) {
       console.log(error);
       next(error);
