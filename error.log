@@ -48,3 +48,12 @@ Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
+PrismaClientKnownRequestError: 
+Invalid `this.db.booksCategory.update()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/category.service.ts:70:33
+
+  67   throw new HttpException(404, "Category not found");
+  68 }
+  69 
+→ 70 await this.db.booksCategory.update(
+An operation failed because it depends on one or more records that were required but not found. Record to update not found.
