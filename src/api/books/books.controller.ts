@@ -24,7 +24,8 @@ export class BooksController {
 
   private registerRoutes() {
     this.router.get(this.path + "/author", this.viewAuthor);
-    this.router.patch(this.path + "/author", this.updateAuthor);
+    this.router.patch(this.path + "/author/:id", this.updateAuthor);
+    this.router.delete(this.path + "/author/:id", this.deleteAuthor);
     this.router.post(this.path + "/category", this.createCategory);
     this.router.get(this.path + "/category", this.viewCategory);
     this.router.post(this.path + "/author", this.createAuthor);
