@@ -23,10 +23,11 @@ export class BooksController {
   }
 
   private registerRoutes() {
-    this.router.post(this.path + "/createcategory", this.createCategory);
-    this.router.post((this.path = "/createauthor"), this.createAuthor);
-    this.router.delete(this.path + "/deletecategory/:id", this.deleteCategory);
-    this.router.patch(this.path + "/updatecategory/:id", this.updateCategory);
+    this.router.get(this.path + "/author", this.viewAuthor);
+    this.router.post(this.path + "/category", this.createCategory);
+    this.router.post(this.path + "/author", this.createAuthor);
+    this.router.delete(this.path + "/category/:id", this.deleteCategory);
+    this.router.patch(this.path + "/category/:id", this.updateCategory);
   }
 
   private createAuthor = async (
@@ -104,6 +105,22 @@ export class BooksController {
       return res
         .status(200)
         .json(createResponse(constants.SUCCESS_MESSAGE, "Update successfully"));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private viewAuthor = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    try {
+      const viewAuthor = await this.authorService.viewAuthor();
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, viewAuthor));
     } catch (error) {
       console.log(error);
       next(error);
