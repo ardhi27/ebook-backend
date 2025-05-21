@@ -24,29 +24,13 @@ export class BooksController {
 
   private registerRoutes() {
     this.router.get(this.path + "/author", this.viewAuthor);
+    this.router.patch(this.path + "/author", this.updateAuthor);
     this.router.post(this.path + "/category", this.createCategory);
     this.router.get(this.path + "/category", this.viewCategory);
     this.router.post(this.path + "/author", this.createAuthor);
     this.router.delete(this.path + "/category/:id", this.deleteCategory);
     this.router.patch(this.path + "/category/:id", this.updateCategory);
   }
-
-  private createAuthor = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<any> => {
-    const author: AuthorDto = req.body;
-    try {
-      this.authorService.createAuthor(author);
-      return res
-        .status(200)
-        .json(createResponse(constants.SUCCESS_MESSAGE, "OK"));
-    } catch (error) {
-      console.log(error);
-      next(error);
-    }
-  };
 
   private createCategory = async (
     req: Request,
@@ -112,6 +96,22 @@ export class BooksController {
     }
   };
 
+  private viewCategory = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    try {
+      const viewCategory = await this.categoryService.viewCategory();
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, viewCategory));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
   private viewAuthor = async (
     req: Request,
     res: Response,
@@ -128,16 +128,52 @@ export class BooksController {
     }
   };
 
-  private viewCategory = async (
+  private createAuthor = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
+    const author: AuthorDto = req.body;
     try {
-      const viewCategory = await this.categoryService.viewCategory();
+      this.authorService.createAuthor(author);
       return res
         .status(200)
-        .json(createResponse(constants.SUCCESS_MESSAGE, viewCategory));
+        .json(createResponse(constants.SUCCESS_MESSAGE, "OK"));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private updateAuthor = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const authorId = Number(req.params);
+    const author: AuthorDto = req.body;
+    try {
+      const updateAuthor = await this.authorService.updateAuthor(
+        authorId,
+        author
+      );
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, "Author is updated"));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private deleteAuthor = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const authorId = Number(req.params);
+    try {
+      const deleteAuthor = await this.authorService.deleteAuthor(authorId);
     } catch (error) {
       console.log(error);
       next(error);

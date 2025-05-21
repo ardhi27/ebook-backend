@@ -35,7 +35,7 @@ export class AuthorService {
     });
   }
 
-  async deleteAuthor(authorId: number, authorData: AuthorDto) {
+  async deleteAuthor(authorId: number) {
     const findAuthor = await this.db.booksAuthor.findFirst({
       where: {
         authorId: authorId,
