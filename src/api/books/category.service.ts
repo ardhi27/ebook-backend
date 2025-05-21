@@ -58,6 +58,10 @@ export class CategoryService {
     };
   }
 
+  async viewCategory() {
+    return await this.db.booksCategory.findMany();
+  }
+
   async updateCategory(categoryId: number, categoryData: CategoryDto) {
     const category = await this.db.booksCategory.findUnique({
       where: { categoryId: categoryId },
