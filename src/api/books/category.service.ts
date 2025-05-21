@@ -57,4 +57,29 @@ export class CategoryService {
       message: "Category deleted succesfully",
     };
   }
+
+  async updateCategory(categoryId: number, categoryData: CategoryDto) {
+    const category = await this.db.booksCategory.findUnique({
+      where: { categoryId: categoryId },
+    });
+
+    if (!categoryId) {
+      throw new HttpException(404, "Category not found");
+    }
+
+    await this.db.booksCategory.update({
+      where: { categoryId: categoryId },
+      data: {
+        category: categoryData.categoryName,
+      },
+    });
+
+    return {
+      status: "Success",
+      message: "Successfully update data",
+      data: {
+        category,
+      },
+    };
+  }
 }
