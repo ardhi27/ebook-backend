@@ -25,6 +25,7 @@ export class BooksController {
   private registerRoutes() {
     this.router.get(this.path + "/author", this.viewAuthor);
     this.router.post(this.path + "/category", this.createCategory);
+    this.router.get(this.path + "/category", this.viewCategory);
     this.router.post(this.path + "/author", this.createAuthor);
     this.router.delete(this.path + "/category/:id", this.deleteCategory);
     this.router.patch(this.path + "/category/:id", this.updateCategory);
@@ -121,6 +122,22 @@ export class BooksController {
       return res
         .status(200)
         .json(createResponse(constants.SUCCESS_MESSAGE, viewAuthor));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private viewCategory = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    try {
+      const viewCategory = await this.categoryService.viewCategory();
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, viewCategory));
     } catch (error) {
       console.log(error);
       next(error);
