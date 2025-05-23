@@ -20,9 +20,6 @@ export class CategoryService {
       },
     });
 
-    console.log("Kategori dikirim:", categoryData.categoryName);
-    console.log("Kategori yang ditemukan:", isCategoryExisted);
-
     if (isCategoryExisted) {
       throw new HttpException(409, "Category already existed");
     }

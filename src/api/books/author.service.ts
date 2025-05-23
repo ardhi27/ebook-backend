@@ -33,6 +33,10 @@ export class AuthorService {
         author: authorData.authorName,
       },
     });
+
+    return {
+      data: newAuthor,
+    };
   }
 
   async deleteAuthor(authorId: number) {

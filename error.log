@@ -67,3 +67,45 @@ Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot read properties of undefined (reading 'authorName')
+TypeError: Cannot read properties of undefined (reading 'authorName')
+Error: Author already existed
+Error: Endpoint tidak ditemukan
+PrismaClientKnownRequestError: 
+Invalid `this.db.booksCategory.update()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/category.service.ts:71:33
+
+  68   throw new HttpException(404, "Category not found");
+  69 }
+  70 
+→ 71 await this.db.booksCategory.update(
+An operation failed because it depends on one or more records that were required but not found. Record to update not found.
+PrismaClientKnownRequestError: 
+Invalid `this.db.booksCategory.update()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/category.service.ts:71:33
+
+  68   throw new HttpException(404, "Category not found");
+  69 }
+  70 
+→ 71 await this.db.booksCategory.update(
+An operation failed because it depends on one or more records that were required but not found. Record to update not found.
+PrismaClientKnownRequestError: 
+Invalid `this.db.booksCategory.update()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/category.service.ts:71:33
+
+  68   throw new HttpException(404, "Category not found");
+  69 }
+  70 
+→ 71 await this.db.booksCategory.update(
+An operation failed because it depends on one or more records that were required but not found. Record to update not found.
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+TypeError: Cannot convert object to primitive value
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan

@@ -1,8 +1,12 @@
-import { IsString } from "class-validator";
+import { IsString, IsInt } from "class-validator";
 
-class CategoryDto {
+class BooksDto {
   @IsString()
-  categoryName!: string;
+  booksName!: string;
+  @IsInt()
+  authorId!: number;
+  @IsInt()
+  categoryId!: number;
 }
 
-export default CategoryDto;
+export default BooksDto;

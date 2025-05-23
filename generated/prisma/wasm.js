@@ -140,7 +140,6 @@ exports.Prisma.BooksAuthorScalarFieldEnum = {
 exports.Prisma.BooksScalarFieldEnum = {
   booksId: 'booksId',
   booksName: 'booksName',
-  booksAuthor: 'booksAuthor',
   authorId: 'authorId',
   categoryId: 'categoryId'
 };
@@ -174,8 +173,7 @@ exports.Prisma.BooksAuthorOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.BooksOrderByRelevanceFieldEnum = {
-  booksName: 'booksName',
-  booksAuthor: 'booksAuthor'
+  booksName: 'booksName'
 };
 
 exports.Prisma.RentalOrderByRelevanceFieldEnum = {

@@ -37,11 +37,10 @@ model BooksAuthor {
 }
 
 model Books {
-  booksId     Int    @id @default(autoincrement())
-  booksName   String @db.VarChar(50)
-  booksAuthor String
-  authorId    Int
-  categoryId  Int
+  booksId    Int    @id @default(autoincrement())
+  booksName  String @db.VarChar(50)
+  authorId   Int
+  categoryId Int
 
   author        BooksAuthor   @relation(fields: [authorId], references: [authorId])
   BooksCategory BooksCategory @relation(fields: [categoryId], references: [categoryId])
@@ -59,6 +58,3 @@ model Rental {
   user User  @relation(fields: [userId], references: [userId])
   book Books @relation(fields: [booksId], references: [booksId])
 }
-
-//payment
-//...

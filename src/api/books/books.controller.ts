@@ -7,17 +7,20 @@ import CategoryDto from "./category.dto";
 import AuthorDto from "./author.dto";
 import { CategoryService } from "./category.service";
 import { AuthorService } from "./author.service";
+import { BookService } from "./books.service";
+import BooksDto from "./books.dto";
 
 export class BooksController {
   private path: string;
   public router: Router;
   private categoryService: CategoryService;
   private authorService: AuthorService;
-
+  private booksService: BookService;
   constructor() {
     this.path = "/api/books";
     this.categoryService = new CategoryService();
     this.authorService = new AuthorService();
+    this.booksService = new BookService();
     this.router = Router();
     this.registerRoutes();
   }
@@ -31,7 +34,47 @@ export class BooksController {
     this.router.post(this.path + "/author", this.createAuthor);
     this.router.delete(this.path + "/category/:id", this.deleteCategory);
     this.router.patch(this.path + "/category/:id", this.updateCategory);
+    this.router.post(this.path + "/books", this.createBooks);
+    this.router.delete(this.path + "/books/:id", this.deleteBooks);
   }
+
+  private createBooks = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const books: BooksDto = req.body;
+    try {
+      this.booksService.createBooks(books);
+      return res
+        .status(200)
+        .json(
+          createResponse(constants.SUCCESS_MESSAGE, "Add books successfully")
+        );
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private deleteBooks = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const booksId = Number(req.params.id);
+    try {
+      this.booksService.deleteBooks(booksId);
+      return res
+        .status(200)
+        .json(
+          createResponse(constants.SUCCESS_MESSAGE, "Books deleted succesfully")
+        );
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
 
   private createCategory = async (
     req: Request,
@@ -44,12 +87,7 @@ export class BooksController {
 
       return res
         .status(200)
-        .json(
-          createResponse(
-            constants.SUCCESS_MESSAGE,
-            `Successfully create new category with name ${category}`
-          )
-        );
+        .json(createResponse(constants.SUCCESS_MESSAGE, category));
     } catch (error) {
       console.log(error);
       next(error);
@@ -136,10 +174,10 @@ export class BooksController {
   ): Promise<any> => {
     const author: AuthorDto = req.body;
     try {
-      this.authorService.createAuthor(author);
+      const createAuthor = await this.authorService.createAuthor(author);
       return res
         .status(200)
-        .json(createResponse(constants.SUCCESS_MESSAGE, "OK"));
+        .json(createResponse(constants.SUCCESS_MESSAGE, createAuthor));
     } catch (error) {
       console.log(error);
       next(error);
@@ -151,7 +189,7 @@ export class BooksController {
     res: Response,
     next: NextFunction
   ): Promise<any> => {
-    const authorId = Number(req.params);
+    const authorId = Number(req.params.id);
     const author: AuthorDto = req.body;
     try {
       const updateAuthor = await this.authorService.updateAuthor(
@@ -172,9 +210,12 @@ export class BooksController {
     res: Response,
     next: NextFunction
   ): Promise<any> => {
-    const authorId = Number(req.params);
+    const authorId = Number(req.params.id);
     try {
       const deleteAuthor = await this.authorService.deleteAuthor(authorId);
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, "Author is deleted"));
     } catch (error) {
       console.log(error);
       next(error);
