@@ -36,6 +36,35 @@ export class BookService {
     };
   }
 
+  async updateBooks(booksId: number, booksData: BooksDto) {
+    //find book first
+    const isBooksExisted = await this.db.books.findFirst({
+      where: {
+        booksId: booksId,
+      },
+    });
+
+    if (isBooksExisted) {
+      throw new HttpException(409, "Books already existed");
+    }
+
+    await this.db.books.update({
+      where: {
+        booksId: booksId,
+      },
+      data: {
+        booksName: booksData.booksName,
+      },
+    });
+
+    return {
+      status: "Success",
+      data: {
+        isBooksExisted,
+      },
+    };
+  }
+
   async deleteBooks(booksId: number) {
     const isBookExisted = await this.db.books.findFirst({
       where: {

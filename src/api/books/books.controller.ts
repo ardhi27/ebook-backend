@@ -36,6 +36,7 @@ export class BooksController {
     this.router.patch(this.path + "/category/:id", this.updateCategory);
     this.router.post(this.path + "/books", this.createBooks);
     this.router.delete(this.path + "/books/:id", this.deleteBooks);
+    this.router.patch(this.path + "/books/:id", this.updateBooks);
   }
 
   private createBooks = async (
@@ -57,6 +58,25 @@ export class BooksController {
     }
   };
 
+  private updateBooks = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const booksId = Number(req.params.id);
+    const newBooks = req.body;
+    try {
+      this.booksService.updateBooks(booksId, newBooks);
+      return res
+        .status(200)
+        .json(
+          createResponse(constants.SUCCESS_MESSAGE, "Update books successfully")
+        );
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
   private deleteBooks = async (
     req: Request,
     res: Response,
