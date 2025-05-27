@@ -4,7 +4,7 @@ import authMiddleware from "../../shared/middlewares/auth.middleware";
 import { UserService } from "./user.services";
 import { HttpException } from "../../shared/http.exception";
 import { validationMiddleware } from "../../shared/middlewares/validation.middleware";
-import { UserRegisterProps } from "./user.dto";
+import UserRegisterProps from "./user.register.dto";
 export class UserController {
   private path: string;
   public router: Router;
@@ -20,7 +20,11 @@ export class UserController {
   private registerRoutes() {
     this.router.post(this.path + "/login", this.login);
     this.router.post(this.path + "/createadmin", this.createAdmin);
-    this.router.post(this.path + "/register", this.register);
+    this.router.post(
+      this.path + "/register",
+      validationMiddleware(UserRegisterProps),
+      this.register
+    );
   }
 
   private createAdmin = async (

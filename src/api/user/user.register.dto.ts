@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class UserLoginProps {
+class UserRegisterProps {
   @IsString()
   @IsNotEmpty()
   username!: string;
@@ -9,8 +9,4 @@ export class UserLoginProps {
   password!: string;
 }
 
-export class UserRegisterProps extends UserLoginProps {}
-
-export class UserCreateArgs extends UserLoginProps {
-  role?: string;
-}
+export default UserRegisterProps;

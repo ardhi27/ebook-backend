@@ -2,7 +2,8 @@ import bcrypt from "bcrypt";
 import prisma, { PrismaClient } from "../../lib/prisma";
 import { HttpException } from "../../shared/http.exception";
 import jwt from "jsonwebtoken";
-import { UserLoginProps, UserRegisterProps } from "./user.dto";
+import { UserLoginProps } from "./user.dto";
+import UserRegisterProps from "./user.register.dto";
 
 export class UserService {
   private db: PrismaClient;
@@ -43,6 +44,10 @@ export class UserService {
 
   //Register
   async register(registerData: UserRegisterProps) {
+    console.log(registerData.username);
+    // if (!registerData.username) {
+    //   throw new HttpException(409, "Username must required");
+    // }
     //Before user register, the function will check first if the user is exist
     const user = await this.db.user.findFirst({
       where: {
