@@ -9,6 +9,7 @@ import { CategoryService } from "./category.service";
 import { AuthorService } from "./author.service";
 import { BookService } from "./books.service";
 import BooksDto from "./books.dto";
+import { isAdminMiddleware } from "../../shared/middlewares/role.middleware";
 
 export class BooksController {
   private path: string;
@@ -16,6 +17,7 @@ export class BooksController {
   private categoryService: CategoryService;
   private authorService: AuthorService;
   private booksService: BookService;
+
   constructor() {
     this.path = "/api/books";
     this.categoryService = new CategoryService();
@@ -24,9 +26,13 @@ export class BooksController {
     this.router = Router();
     this.registerRoutes();
   }
-
   private registerRoutes() {
-    this.router.get(this.path + "/author", this.viewAuthor);
+    this.router.get(
+      this.path + "/author",
+      authMiddleware,
+      isAdminMiddleware,
+      this.viewAuthor
+    );
     this.router.patch(this.path + "/author/:id", this.updateAuthor);
     this.router.delete(this.path + "/author/:id", this.deleteAuthor);
     this.router.post(this.path + "/category", this.createCategory);
@@ -38,6 +44,12 @@ export class BooksController {
     this.router.delete(this.path + "/books/:id", this.deleteBooks);
     this.router.patch(this.path + "/books/:id", this.updateBooks);
   }
+
+  private login = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {};
 
   private createBooks = async (
     req: Request,
