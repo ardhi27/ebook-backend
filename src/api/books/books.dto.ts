@@ -7,6 +7,8 @@ class BooksDto {
   authorId!: number;
   @IsInt()
   categoryId!: number;
+  @IsString()
+  booksDesc!: string;
 }
 
 export default BooksDto;
