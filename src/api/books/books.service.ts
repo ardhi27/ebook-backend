@@ -24,6 +24,7 @@ export class BookService {
 
     const newBooks = await this.db.books.create({
       data: {
+        booksDesc: booksData.booksDesc,
         booksName: booksData.booksName,
         authorId: booksData.authorId,
         categoryId: booksData.categoryId,
@@ -64,6 +65,14 @@ export class BookService {
       },
     };
   }
+  async viewBooks() {
+    return await this.db.books.findMany({
+      include: {
+        author: true,
+        BooksCategory: true,
+      },
+    });
+  }
 
   async deleteBooks(booksId: number) {
     const isBookExisted = await this.db.books.findFirst({
@@ -87,10 +96,4 @@ export class BookService {
       message: "Books deleted succesfully",
     };
   }
-
-  //   return {
-  //     data: {
-  //         newBooks
-  //     }
-  //   };
 }
