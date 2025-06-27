@@ -33,16 +33,62 @@ export class BooksController {
       isAdminMiddleware,
       this.viewAuthor
     );
-    this.router.patch(this.path + "/author/:id", this.updateAuthor);
-    this.router.delete(this.path + "/author/:id", this.deleteAuthor);
-    this.router.post(this.path + "/category", this.createCategory);
-    this.router.get(this.path + "/category", this.viewCategory);
-    this.router.post(this.path + "/author", this.createAuthor);
-    this.router.delete(this.path + "/category/:id", this.deleteCategory);
-    this.router.patch(this.path + "/category/:id", this.updateCategory);
+    this.router.patch(
+      this.path + "/author/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.updateAuthor
+    );
+    this.router.delete(
+      this.path + "/author/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.deleteAuthor
+    );
+    this.router.post(
+      this.path + "/category",
+      authMiddleware,
+      isAdminMiddleware,
+      this.createCategory
+    );
+    this.router.get(
+      this.path + "/category",
+      authMiddleware,
+      isAdminMiddleware,
+      this.viewCategory
+    );
+    this.router.post(
+      this.path + "/author",
+      authMiddleware,
+      isAdminMiddleware,
+      this.createAuthor
+    );
+    this.router.delete(
+      this.path + "/category/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.deleteCategory
+    );
+    this.router.patch(
+      this.path + "/category/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.updateCategory
+    );
     this.router.post(this.path + "/books", this.createBooks);
-    this.router.delete(this.path + "/books/:id", this.deleteBooks);
-    this.router.patch(this.path + "/books/:id", this.updateBooks);
+    this.router.delete(
+      this.path + "/books/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.deleteBooks
+    );
+    this.router.patch(
+      this.path + "/books/:id",
+      authMiddleware,
+      isAdminMiddleware,
+      this.updateBooks
+    );
+    this.router.get(this.path + "/books", this.viewBooks);
   }
 
   private login = async (
@@ -50,6 +96,23 @@ export class BooksController {
     res: Response,
     next: NextFunction
   ): Promise<any> => {};
+
+  private viewBooks = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const books: BooksDto = req.body;
+    try {
+      const viewBooks = await this.booksService.viewBooks();
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, viewBooks));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
 
   private createBooks = async (
     req: Request,
