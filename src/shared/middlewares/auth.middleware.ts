@@ -1,4 +1,4 @@
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { HttpException } from "../http.exception";
 import { Request, Response, NextFunction } from "express";
 
@@ -20,7 +20,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
       throw new HttpException(500, "No JWT_KEY env found");
     }
 
-    const decoded = jwt.verify(token, jwtKey) as JwtPayload;
+    const decoded = jwt.verify(token, jwtKey) as JWTPayload;
     req.userId = decoded.userId;
     req.userRole = decoded.userRole;
     console.log(decoded);
