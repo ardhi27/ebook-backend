@@ -89,6 +89,7 @@ export class BooksController {
       this.updateBooks
     );
     this.router.get(this.path + "/books", this.viewBooks);
+    this.router.get(this.path + "/books/:id", this.viewBooksById);
   }
 
   private login = async (
@@ -108,6 +109,23 @@ export class BooksController {
       return res
         .status(200)
         .json(createResponse(constants.SUCCESS_MESSAGE, viewBooks));
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  };
+
+  private viewBooksById = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
+    const booksId = Number(req.params.id);
+    try {
+      const viewBooksById = await this.booksService.viewBooksById(booksId);
+      return res
+        .status(200)
+        .json(createResponse(constants.SUCCESS_MESSAGE, viewBooksById));
     } catch (error) {
       console.log(error);
       next(error);

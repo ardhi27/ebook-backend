@@ -74,6 +74,24 @@ export class BookService {
     });
   }
 
+  async viewBooksById(booksId: number) {
+    const isBookExisted = await this.db.books.findFirst({
+      where: {
+        booksId: booksId,
+      },
+      include: {
+        author: true,
+        BooksCategory: true,
+      },
+    });
+
+    if (!isBookExisted) {
+      throw new HttpException(404, "Buku tidka ditemukan");
+    }
+
+    return isBookExisted;
+  }
+
   async deleteBooks(booksId: number) {
     const isBookExisted = await this.db.books.findFirst({
       where: {
