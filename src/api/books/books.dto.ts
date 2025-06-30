@@ -1,4 +1,4 @@
-import { IsString, IsInt } from "class-validator";
+import { IsString, IsInt, IsOptional } from "class-validator";
 
 class BooksDto {
   @IsString()
@@ -9,6 +9,8 @@ class BooksDto {
   categoryId!: number;
   @IsString()
   booksDesc!: string;
+  @IsOptional()
+  booksImage!: string;
 }
 
 export default BooksDto;
