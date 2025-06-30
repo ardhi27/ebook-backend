@@ -1,8 +1,6 @@
 import prisma, { PrismaClient } from "../../lib/prisma";
 import { HttpException } from "../../shared/http.exception";
-import AuthorDto from "./author.dto";
 import BooksDto from "./books.dto";
-import CategoryDto from "./category.dto";
 
 export class BookService {
   private db: PrismaClient;
@@ -24,6 +22,7 @@ export class BookService {
 
     const newBooks = await this.db.books.create({
       data: {
+        booksImage: booksData.booksImage,
         booksDesc: booksData.booksDesc,
         booksName: booksData.booksName,
         authorId: booksData.authorId,
@@ -38,7 +37,6 @@ export class BookService {
   }
 
   async updateBooks(booksId: number, booksData: BooksDto) {
-    //find book first
     const isBooksExisted = await this.db.books.findFirst({
       where: {
         booksId: booksId,
