@@ -9,7 +9,6 @@ import cors from "cors";
 
 class Server {
   private app: Application;
-
   constructor() {
     this.app = express();
     this.registerMiddlewares();
@@ -18,7 +17,8 @@ class Server {
   }
 
   private registerMiddlewares() {
-    this.app.use(express.json());
+    this.app.use(express.json({ limit: "10mb" }));
+    this.app.use(express.urlencoded({ limit: "50mb", extended: true }));
     this.app.use(cors());
   }
 

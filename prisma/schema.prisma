@@ -37,9 +37,10 @@ model BooksAuthor {
 }
 
 model Books {
-  booksId    Int    @id @default(autoincrement())
-  booksName  String @db.VarChar(50)
-  booksDesc  String @db.Text()
+  booksId    Int     @id @default(autoincrement())
+  booksName  String  @db.VarChar(50)
+  booksDesc  String  @db.Text()
+  booksImage String? @db.Text()
   authorId   Int
   categoryId Int
 

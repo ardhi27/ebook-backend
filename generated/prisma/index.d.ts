@@ -4234,6 +4234,7 @@ export namespace Prisma {
     booksId: number | null
     booksName: string | null
     booksDesc: string | null
+    booksImage: string | null
     authorId: number | null
     categoryId: number | null
   }
@@ -4242,6 +4243,7 @@ export namespace Prisma {
     booksId: number | null
     booksName: string | null
     booksDesc: string | null
+    booksImage: string | null
     authorId: number | null
     categoryId: number | null
   }
@@ -4250,6 +4252,7 @@ export namespace Prisma {
     booksId: number
     booksName: number
     booksDesc: number
+    booksImage: number
     authorId: number
     categoryId: number
     _all: number
@@ -4272,6 +4275,7 @@ export namespace Prisma {
     booksId?: true
     booksName?: true
     booksDesc?: true
+    booksImage?: true
     authorId?: true
     categoryId?: true
   }
@@ -4280,6 +4284,7 @@ export namespace Prisma {
     booksId?: true
     booksName?: true
     booksDesc?: true
+    booksImage?: true
     authorId?: true
     categoryId?: true
   }
@@ -4288,6 +4293,7 @@ export namespace Prisma {
     booksId?: true
     booksName?: true
     booksDesc?: true
+    booksImage?: true
     authorId?: true
     categoryId?: true
     _all?: true
@@ -4383,6 +4389,7 @@ export namespace Prisma {
     booksId: number
     booksName: string
     booksDesc: string
+    booksImage: string | null
     authorId: number
     categoryId: number
     _count: BooksCountAggregateOutputType | null
@@ -4410,6 +4417,7 @@ export namespace Prisma {
     booksId?: boolean
     booksName?: boolean
     booksDesc?: boolean
+    booksImage?: boolean
     authorId?: boolean
     categoryId?: boolean
     author?: boolean | BooksAuthorDefaultArgs<ExtArgs>
@@ -4424,11 +4432,12 @@ export namespace Prisma {
     booksId?: boolean
     booksName?: boolean
     booksDesc?: boolean
+    booksImage?: boolean
     authorId?: boolean
     categoryId?: boolean
   }
 
-  export type BooksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"booksId" | "booksName" | "booksDesc" | "authorId" | "categoryId", ExtArgs["result"]["books"]>
+  export type BooksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"booksId" | "booksName" | "booksDesc" | "booksImage" | "authorId" | "categoryId", ExtArgs["result"]["books"]>
   export type BooksInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | BooksAuthorDefaultArgs<ExtArgs>
     BooksCategory?: boolean | BooksCategoryDefaultArgs<ExtArgs>
@@ -4447,6 +4456,7 @@ export namespace Prisma {
       booksId: number
       booksName: string
       booksDesc: string
+      booksImage: string | null
       authorId: number
       categoryId: number
     }, ExtArgs["result"]["books"]>
@@ -4824,6 +4834,7 @@ export namespace Prisma {
     readonly booksId: FieldRef<"Books", 'Int'>
     readonly booksName: FieldRef<"Books", 'String'>
     readonly booksDesc: FieldRef<"Books", 'String'>
+    readonly booksImage: FieldRef<"Books", 'String'>
     readonly authorId: FieldRef<"Books", 'Int'>
     readonly categoryId: FieldRef<"Books", 'Int'>
   }
@@ -6241,6 +6252,7 @@ export namespace Prisma {
     booksId: 'booksId',
     booksName: 'booksName',
     booksDesc: 'booksDesc',
+    booksImage: 'booksImage',
     authorId: 'authorId',
     categoryId: 'categoryId'
   };
@@ -6291,9 +6303,18 @@ export namespace Prisma {
   export type BooksAuthorOrderByRelevanceFieldEnum = (typeof BooksAuthorOrderByRelevanceFieldEnum)[keyof typeof BooksAuthorOrderByRelevanceFieldEnum]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   export const BooksOrderByRelevanceFieldEnum: {
     booksName: 'booksName',
-    booksDesc: 'booksDesc'
+    booksDesc: 'booksDesc',
+    booksImage: 'booksImage'
   };
 
   export type BooksOrderByRelevanceFieldEnum = (typeof BooksOrderByRelevanceFieldEnum)[keyof typeof BooksOrderByRelevanceFieldEnum]
@@ -6488,6 +6509,7 @@ export namespace Prisma {
     booksId?: IntFilter<"Books"> | number
     booksName?: StringFilter<"Books"> | string
     booksDesc?: StringFilter<"Books"> | string
+    booksImage?: StringNullableFilter<"Books"> | string | null
     authorId?: IntFilter<"Books"> | number
     categoryId?: IntFilter<"Books"> | number
     author?: XOR<BooksAuthorScalarRelationFilter, BooksAuthorWhereInput>
@@ -6499,6 +6521,7 @@ export namespace Prisma {
     booksId?: SortOrder
     booksName?: SortOrder
     booksDesc?: SortOrder
+    booksImage?: SortOrderInput | SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
     author?: BooksAuthorOrderByWithRelationInput
@@ -6514,6 +6537,7 @@ export namespace Prisma {
     NOT?: BooksWhereInput | BooksWhereInput[]
     booksName?: StringFilter<"Books"> | string
     booksDesc?: StringFilter<"Books"> | string
+    booksImage?: StringNullableFilter<"Books"> | string | null
     authorId?: IntFilter<"Books"> | number
     categoryId?: IntFilter<"Books"> | number
     author?: XOR<BooksAuthorScalarRelationFilter, BooksAuthorWhereInput>
@@ -6525,6 +6549,7 @@ export namespace Prisma {
     booksId?: SortOrder
     booksName?: SortOrder
     booksDesc?: SortOrder
+    booksImage?: SortOrderInput | SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
     _count?: BooksCountOrderByAggregateInput
@@ -6541,6 +6566,7 @@ export namespace Prisma {
     booksId?: IntWithAggregatesFilter<"Books"> | number
     booksName?: StringWithAggregatesFilter<"Books"> | string
     booksDesc?: StringWithAggregatesFilter<"Books"> | string
+    booksImage?: StringNullableWithAggregatesFilter<"Books"> | string | null
     authorId?: IntWithAggregatesFilter<"Books"> | number
     categoryId?: IntWithAggregatesFilter<"Books"> | number
   }
@@ -6736,6 +6762,7 @@ export namespace Prisma {
   export type BooksCreateInput = {
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     author: BooksAuthorCreateNestedOneWithoutBooksInput
     BooksCategory: BooksCategoryCreateNestedOneWithoutBooksInput
     Rental?: RentalCreateNestedManyWithoutBookInput
@@ -6745,6 +6772,7 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     authorId: number
     categoryId: number
     Rental?: RentalUncheckedCreateNestedManyWithoutBookInput
@@ -6753,6 +6781,7 @@ export namespace Prisma {
   export type BooksUpdateInput = {
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     author?: BooksAuthorUpdateOneRequiredWithoutBooksNestedInput
     BooksCategory?: BooksCategoryUpdateOneRequiredWithoutBooksNestedInput
     Rental?: RentalUpdateManyWithoutBookNestedInput
@@ -6762,6 +6791,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     categoryId?: IntFieldUpdateOperationsInput | number
     Rental?: RentalUncheckedUpdateManyWithoutBookNestedInput
@@ -6771,6 +6801,7 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     authorId: number
     categoryId: number
   }
@@ -6778,12 +6809,14 @@ export namespace Prisma {
   export type BooksUpdateManyMutationInput = {
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BooksUncheckedUpdateManyInput = {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     categoryId?: IntFieldUpdateOperationsInput | number
   }
@@ -7019,6 +7052,21 @@ export namespace Prisma {
     authorId?: SortOrder
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type BooksAuthorScalarRelationFilter = {
     is?: BooksAuthorWhereInput
     isNot?: BooksAuthorWhereInput
@@ -7027,6 +7075,11 @@ export namespace Prisma {
   export type BooksCategoryScalarRelationFilter = {
     is?: BooksCategoryWhereInput
     isNot?: BooksCategoryWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type BooksOrderByRelevanceInput = {
@@ -7039,6 +7092,7 @@ export namespace Prisma {
     booksId?: SortOrder
     booksName?: SortOrder
     booksDesc?: SortOrder
+    booksImage?: SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
   }
@@ -7053,6 +7107,7 @@ export namespace Prisma {
     booksId?: SortOrder
     booksName?: SortOrder
     booksDesc?: SortOrder
+    booksImage?: SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
   }
@@ -7061,6 +7116,7 @@ export namespace Prisma {
     booksId?: SortOrder
     booksName?: SortOrder
     booksDesc?: SortOrder
+    booksImage?: SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
   }
@@ -7069,6 +7125,24 @@ export namespace Prisma {
     booksId?: SortOrder
     authorId?: SortOrder
     categoryId?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -7315,6 +7389,10 @@ export namespace Prisma {
     connect?: RentalWhereUniqueInput | RentalWhereUniqueInput[]
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type BooksAuthorUpdateOneRequiredWithoutBooksNestedInput = {
     create?: XOR<BooksAuthorCreateWithoutBooksInput, BooksAuthorUncheckedCreateWithoutBooksInput>
     connectOrCreate?: BooksAuthorCreateOrConnectWithoutBooksInput
@@ -7462,6 +7540,50 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -7543,6 +7665,7 @@ export namespace Prisma {
   export type BooksCreateWithoutBooksCategoryInput = {
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     author: BooksAuthorCreateNestedOneWithoutBooksInput
     Rental?: RentalCreateNestedManyWithoutBookInput
   }
@@ -7551,6 +7674,7 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     authorId: number
     Rental?: RentalUncheckedCreateNestedManyWithoutBookInput
   }
@@ -7588,6 +7712,7 @@ export namespace Prisma {
     booksId?: IntFilter<"Books"> | number
     booksName?: StringFilter<"Books"> | string
     booksDesc?: StringFilter<"Books"> | string
+    booksImage?: StringNullableFilter<"Books"> | string | null
     authorId?: IntFilter<"Books"> | number
     categoryId?: IntFilter<"Books"> | number
   }
@@ -7595,6 +7720,7 @@ export namespace Prisma {
   export type BooksCreateWithoutAuthorInput = {
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     BooksCategory: BooksCategoryCreateNestedOneWithoutBooksInput
     Rental?: RentalCreateNestedManyWithoutBookInput
   }
@@ -7603,6 +7729,7 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     categoryId: number
     Rental?: RentalUncheckedCreateNestedManyWithoutBookInput
   }
@@ -7763,6 +7890,7 @@ export namespace Prisma {
   export type BooksCreateWithoutRentalInput = {
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     author: BooksAuthorCreateNestedOneWithoutBooksInput
     BooksCategory: BooksCategoryCreateNestedOneWithoutBooksInput
   }
@@ -7771,6 +7899,7 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     authorId: number
     categoryId: number
   }
@@ -7818,6 +7947,7 @@ export namespace Prisma {
   export type BooksUpdateWithoutRentalInput = {
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     author?: BooksAuthorUpdateOneRequiredWithoutBooksNestedInput
     BooksCategory?: BooksCategoryUpdateOneRequiredWithoutBooksNestedInput
   }
@@ -7826,6 +7956,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     categoryId?: IntFieldUpdateOperationsInput | number
   }
@@ -7865,12 +7996,14 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     authorId: number
   }
 
   export type BooksUpdateWithoutBooksCategoryInput = {
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     author?: BooksAuthorUpdateOneRequiredWithoutBooksNestedInput
     Rental?: RentalUpdateManyWithoutBookNestedInput
   }
@@ -7879,6 +8012,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     Rental?: RentalUncheckedUpdateManyWithoutBookNestedInput
   }
@@ -7887,6 +8021,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     authorId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -7894,12 +8029,14 @@ export namespace Prisma {
     booksId?: number
     booksName: string
     booksDesc: string
+    booksImage?: string | null
     categoryId: number
   }
 
   export type BooksUpdateWithoutAuthorInput = {
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     BooksCategory?: BooksCategoryUpdateOneRequiredWithoutBooksNestedInput
     Rental?: RentalUpdateManyWithoutBookNestedInput
   }
@@ -7908,6 +8045,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: IntFieldUpdateOperationsInput | number
     Rental?: RentalUncheckedUpdateManyWithoutBookNestedInput
   }
@@ -7916,6 +8054,7 @@ export namespace Prisma {
     booksId?: IntFieldUpdateOperationsInput | number
     booksName?: StringFieldUpdateOperationsInput | string
     booksDesc?: StringFieldUpdateOperationsInput | string
+    booksImage?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: IntFieldUpdateOperationsInput | number
   }
 
