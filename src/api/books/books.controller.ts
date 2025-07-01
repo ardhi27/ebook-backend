@@ -144,18 +144,12 @@ export class BooksController {
   ): Promise<any> => {
     try {
       const books: BooksDto = req.body;
-
-      const authorId = parseInt(req.body.authorId, 10);
-      const categoryId = parseInt(req.body.categoryId, 10);
-
+      books.authorId = parseInt(req.body.authorId);
+      books.categoryId = parseInt(req.body.categoryId);
       if (req.file) {
         books.booksImage = req.file.filename;
       }
-
-      books.authorId = authorId;
-      books.categoryId = categoryId;
-
-      this.booksService.createBooks(books);
+      await this.booksService.createBooks(books);
       return res
         .status(200)
         .json(
