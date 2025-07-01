@@ -6,6 +6,8 @@ import {
 import { UserController } from "./api/user/user.controller";
 import { BooksController } from "./api/books/books.controller";
 import cors from "cors";
+import path, { dirname } from "path";
+import _default from "next/dist/client/router";
 
 class Server {
   private app: Application;
@@ -19,6 +21,10 @@ class Server {
   private registerMiddlewares() {
     this.app.use(express.json({ limit: "10mb" }));
     this.app.use(express.urlencoded({ limit: "50mb", extended: true }));
+    // this.app.use(
+    //   "/static",
+    //   express.static(path.join(__dirname, "..", "public"))
+    // );
     this.app.use(cors());
   }
 
@@ -30,6 +36,10 @@ class Server {
   private routes() {
     this.app.use(new UserController().router);
     this.app.use(new BooksController().router);
+    this.app.use(
+      "/static",
+      express.static(path.join(__dirname, "..", "public"))
+    );
   }
 
   public run() {
