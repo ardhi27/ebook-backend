@@ -10,6 +10,7 @@ import { AuthorService } from "./author.service";
 import { BookService } from "./books.service";
 import BooksDto from "./books.dto";
 import { isAdminMiddleware } from "../../shared/middlewares/role.middleware";
+import upload from "../../shared/middlewares/multer.middleware";
 
 export class BooksController {
   private path: string;
@@ -75,7 +76,11 @@ export class BooksController {
       isAdminMiddleware,
       this.updateCategory
     );
-    this.router.post(this.path + "/books", this.createBooks);
+    this.router.post(
+      this.path + "/books",
+      upload.single("booksImage"),
+      this.createBooks
+    );
     this.router.delete(
       this.path + "/books/:id",
       authMiddleware,
@@ -137,8 +142,19 @@ export class BooksController {
     res: Response,
     next: NextFunction
   ): Promise<any> => {
-    const books: BooksDto = req.body;
     try {
+      const books: BooksDto = req.body;
+
+      const authorId = parseInt(req.body.authorId, 10);
+      const categoryId = parseInt(req.body.categoryId, 10);
+
+      if (req.file) {
+        books.booksImage = req.file.filename;
+      }
+
+      books.authorId = authorId;
+      books.categoryId = categoryId;
+
       this.booksService.createBooks(books);
       return res
         .status(200)
