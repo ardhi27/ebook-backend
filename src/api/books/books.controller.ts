@@ -11,6 +11,7 @@ import { BookService } from "./books.service";
 import BooksDto from "./books.dto";
 import { isAdminMiddleware } from "../../shared/middlewares/role.middleware";
 import upload from "../../shared/middlewares/multer.middleware";
+import { PrismaClient } from "@prisma/client";
 
 export class BooksController {
   private path: string;
@@ -144,12 +145,16 @@ export class BooksController {
   ): Promise<any> => {
     try {
       const books: BooksDto = req.body;
+
       books.authorId = parseInt(req.body.authorId);
       books.categoryId = parseInt(req.body.categoryId);
+      books.booksPrice = parseInt(req.body.booksPrice);
+
       if (req.file) {
         books.booksImage = req.file.filename;
       }
       await this.booksService.createBooks(books);
+
       return res
         .status(200)
         .json(
