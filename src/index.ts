@@ -8,6 +8,7 @@ import { BooksController } from "./api/books/books.controller";
 import cors from "cors";
 import path, { dirname } from "path";
 import _default from "next/dist/client/router";
+import { PaymentController } from "./api/payment/payment.controller";
 
 class Server {
   private app: Application;
@@ -34,12 +35,13 @@ class Server {
   }
 
   private routes() {
-    this.app.use(new UserController().router);
-    this.app.use(new BooksController().router);
     this.app.use(
       "/static",
       express.static(path.join(__dirname, "..", "public"))
     );
+    this.app.use(new UserController().router);
+    this.app.use(new BooksController().router);
+    this.app.use(new PaymentController().router);
   }
 
   public run() {
