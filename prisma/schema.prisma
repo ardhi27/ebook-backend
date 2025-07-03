@@ -43,6 +43,7 @@ model Books {
   booksImage String? @db.Text()
   authorId   Int
   categoryId Int
+  booksPrice Int     @default(0)
 
   author        BooksAuthor   @relation(fields: [authorId], references: [authorId])
   BooksCategory BooksCategory @relation(fields: [categoryId], references: [categoryId])
