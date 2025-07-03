@@ -27,6 +27,7 @@ export class BookService {
         booksName: booksData.booksName,
         authorId: booksData.authorId,
         categoryId: booksData.categoryId,
+        booksPrice: booksData.booksPrice,
       },
     });
 
