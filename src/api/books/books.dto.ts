@@ -11,6 +11,8 @@ class BooksDto {
   booksDesc!: string;
   @IsOptional()
   booksImage!: string;
+  @IsInt()
+  booksPrice!: number;
 }
 
 export default BooksDto;
