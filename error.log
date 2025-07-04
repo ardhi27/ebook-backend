@@ -137,3 +137,1388 @@ Error: username should not be empty,username must be a string
 Error: username should not be empty
 Error: username should not be empty
 Error: username should not be empty
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: User already exist
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: username should not be empty, password should not be empty
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: Endpoint tidak ditemukan
+Error: Unauthorized
+Error: Unauthorized
+Error: Endpoint tidak ditemukan
+Error: User not found
+Error: User not found
+Error: Unauthorized
+Error: Unauthorized
+Error: Unauthorized
+Error: Unauthorized
+Error: Unauthorized
+Error: Access Denied
+Error: Access Denied
+Error: Access Denied
+Error: Access Denied
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:78:47
+
+  75 }
+  76 
+  77 async viewBooksById(booksId: number) {
+→ 78   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+PayloadTooLargeError: request entity too large
+PayloadTooLargeError: request entity too large
+PayloadTooLargeError: request entity too large
+PayloadTooLargeError: request entity too large
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+Error: Malformed part header
+PrismaClientValidationError: 
+Invalid `this.db.books.create()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:23:42
+
+  20   throw new HttpException(409, "Books already existed");
+  21 }
+  22 
+→ 23 const newBooks = await this.db.books.create({
+       data: {
+         booksImage: "booksImage-1751352421379-314505617.jpg",
+         booksDesc: "A",
+         booksName: "A",
+         authorId: "6",
+                   ~~~
+         categoryId: "2"
+       }
+     })
+
+Argument `authorId`: Invalid value provided. Expected Int, provided String.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Unauthorized
+Error: Unauthorized
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan

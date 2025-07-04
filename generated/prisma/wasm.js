@@ -143,7 +143,8 @@ exports.Prisma.BooksScalarFieldEnum = {
   booksDesc: 'booksDesc',
   booksImage: 'booksImage',
   authorId: 'authorId',
-  categoryId: 'categoryId'
+  categoryId: 'categoryId',
+  booksPrice: 'booksPrice'
 };
 
 exports.Prisma.RentalScalarFieldEnum = {

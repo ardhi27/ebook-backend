@@ -1,22 +1,45 @@
 import { Request, Response, Router } from "express";
 import { constants, createResponse } from "../../shared/utils";
+import authMiddleware from "../../shared/middlewares/auth.middleware";
+import { BookService } from "../books/books.service";
+import BooksDto from "../books/books.dto";
 
 export class PaymentController {
   private path: string;
   public router: Router;
+  private booksService: BookService;
 
   constructor() {
     this.path = "/api/payment";
     this.router = Router();
+    this.booksService = new BookService();
     this.registerRoutes();
   }
 
   private registerRoutes() {
-    this.router.get(this.path + "/simulate", this.testPayment);
+    this.router.get(this.path + "/simulate/:id", this.createPayment);
   }
 
-  private testPayment = async (req: Request, res: Response): Promise<any> => {
+  private createPayment = async (req: Request, res: Response): Promise<any> => {
     let transactionResponse;
+
+    const booksId = Number(req.params.id);
+    const book = await this.booksService.viewBooksById(booksId);
+    const orderId = `BOOK-${booksId}-${Date.now()}-${Math.random()
+      .toString(36)
+      .substring(2, 18)}`;
+
+    const parameter = {
+      transaction_details: {
+        order_id: orderId,
+        gross_amount: book.booksPrice,
+      },
+      credit_card: {
+        secure: true,
+      },
+    };
+    console.log(book);
+
     snap.createTransaction(parameter).then((transaction: any) => {
       let transactionToken = transaction.token;
       console.log(transaction);
@@ -36,18 +59,16 @@ let snap = new midtransClient.Snap({
   serverKey: process.env.SERVER_KEY,
 });
 
-let parameter = {
-  transaction_details: {
-    order_id: "sofyan-123",
-    gross_amount: 10000,
-  },
-  credit_card: {
-    secure: true,
-  },
-  customer_details: {
-    first_name: "budi",
-    last_name: "pratama",
-    email: "budi.pra@example.com",
-    phone: "08111222333",
-  },
-};
+// let parameter = {
+//   transaction_details: {
+//     order_id: "sofyan-123",
+//     gross_amount: 10000,
+//   },
+//   credit_card: {
+//     secure: true,
+//   },
+//   customer_details: {
+//     booksId: "budi",
+//     booksName: "pratama",
+//   },
+// };
