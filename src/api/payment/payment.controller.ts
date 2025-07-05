@@ -37,18 +37,22 @@ export class PaymentController {
       credit_card: {
         secure: true,
       },
+      callbacks: {
+        finish: "https://523a-103-47-133-134.ngrok-free.app/detail/success",
+      },
     };
     console.log(book);
 
     snap.createTransaction(parameter).then((transaction: any) => {
-      let transactionToken = transaction.token;
+      // let transactionToken = transaction.token;
       console.log(transaction);
       transactionResponse = transaction;
-      return res
-        .status(200)
-        .json(
-          createResponse(constants.SUCCESS_MESSAGE, transaction.redirect_url)
-        );
+      return res.status(200).json(
+        createResponse(constants.SUCCESS_MESSAGE, {
+          token: transaction.token,
+          redirect_url: transaction.redirect_url,
+        })
+      );
     });
   };
 }

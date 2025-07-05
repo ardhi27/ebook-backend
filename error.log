@@ -1522,3 +1522,152 @@ Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
 Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+PrismaClientValidationError: 
+Invalid `this.db.books.findFirst()` invocation in
+/Users/agungardhiyanda/Documents/GitHub/rental-books-backend/src/api/books/books.service.ts:77:47
+
+  74 }
+  75 
+  76 async viewBooksById(booksId: number) {
+→ 77   const isBookExisted = await this.db.books.findFirst({
+         where: {
+       +   booksId: {
+       +     equals: Int | IntFieldRefInput,
+       +     in: Int[],
+       +     notIn: Int[],
+       +     lt: Int | IntFieldRefInput,
+       +     lte: Int | IntFieldRefInput,
+       +     gt: Int | IntFieldRefInput,
+       +     gte: Int | IntFieldRefInput,
+       +     not: Int | NestedIntFilter
+       +   }
+         },
+         include: {
+           author: true,
+           BooksCategory: true
+         }
+       })
+
+Argument `booksId` is missing.
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: User not found
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
+Error: Endpoint tidak ditemukan
